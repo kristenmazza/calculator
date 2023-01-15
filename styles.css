@@ -12,12 +12,12 @@ body {
 
 .title {
     color: #fcfcfc;
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 40px;
 }
 
 .content {
-    margin-top: 30px;
+    margin-top: 20px;
     flex: 1 0 auto;
 }
 
@@ -33,14 +33,15 @@ body {
 .display {
     display: flex;
     background-color: #fdfdfd;
-    min-height: 70px;
+    min-height: 100px;
     width: 100%;
     border: 1px solid #000000;
     border-radius: 5px;
     justify-content: right;
-    align-items: center;
+    align-items: end;
     font-size: 30px;
     padding-right: 20px;
+    padding-bottom: 20px;
     inline-size: 290px;
     overflow-wrap: break-word;
 }
