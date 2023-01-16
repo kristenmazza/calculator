@@ -101,3 +101,8 @@ clearBtn.addEventListener("click", () => {
     display.innerText = displayValue;
 });
 
+const deleteBtn = document.querySelector('#delete');
+deleteBtn.addEventListener("click", () => {
+    displayValue = +(displayValue.toString().slice(0, -1)); 
+    display.innerText = displayValue;
+});
