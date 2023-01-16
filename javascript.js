@@ -88,6 +88,13 @@ operators.forEach(operator => {
             }
         }
 
+        // If a calculation is made using the equal sign, and then a new number is immediately 
+        // entered, reset the calculation to start fresh with the newly entered number
+        if (calculatedValue != null && operatorValue === "equal") {
+            calculatedValue = null;
+            displayValue = parseFloat(display.innerText);
+        }
+
         operatorLastSelected = true;
     });
 });
