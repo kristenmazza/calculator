@@ -113,3 +113,85 @@ deleteBtn.addEventListener("click", () => {
     displayValue = +(displayValue.toString().slice(0, -1)); 
     display.innerText = displayValue;
 });
+
+window.onkeydown = function(e) {
+    e.preventDefault();
+    let x = e.key;
+    let choice;
+
+    switch(x) {
+        case '1': 
+            choice = document.querySelector(`button[value="1"]`);
+            choice.click();
+            break;
+        case '2':
+            choice = document.querySelector(`button[value="2"]`);
+            choice.click();
+            break;
+        case '3':
+            choice = document.querySelector(`button[value="3"]`);
+            choice.click();
+            break;
+        case '4':
+            choice = document.querySelector(`button[value="4"]`);
+            choice.click();
+            break;
+        case '5': 
+            choice = document.querySelector(`button[value="5"]`);
+            choice.click();
+            break;
+        case '6':
+            choice = document.querySelector(`button[value="6"]`);
+            choice.click();
+            break;
+        case '7':
+            choice = document.querySelector(`button[value="7"]`);
+            choice.click();
+            break;
+        case '8':
+            choice = document.querySelector(`button[value="8"]`);
+            choice.click();
+            break;
+        case '9': 
+            choice = document.querySelector(`button[value="9"]`);
+            choice.click();
+            break;
+        case '0':
+            choice = document.querySelector(`button[value="0"]`);
+            choice.click();
+            break;
+        case '+':
+            choice = document.querySelector(`button[value="addition"]`);
+            choice.click();
+            break;
+        case '-':
+            choice = document.querySelector(`button[value="subtraction"]`);
+            choice.click();
+            break;
+        case '/':
+            choice = document.querySelector(`button[value="division"]`);
+            choice.click();
+            break;
+        case '*':
+            choice = document.querySelector(`button[value="multiplication"]`);
+            choice.click();
+            break;
+        case '.':
+            choice = document.querySelector(`button[value="."]`);
+            choice.click();
+            break;
+        case '=':
+        case 'Enter':
+            choice = document.querySelector(`button[value="equal"]`);
+            choice.click();
+            break;
+        case 'Backspace':
+            choice = document.getElementById("delete");
+            choice.click();
+            break;
+        case 'c':
+            choice = document.getElementById("clear");
+            choice.click();
+            break;
+    }
+}
