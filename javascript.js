@@ -29,17 +29,16 @@ function operate(operator, a, b) {
 
 let displayValue = "";
 let calculatedValue = null;
-let secondValue = null;
 let operatorValue = null;
 const display = document.querySelector('.display');
-
 let operatorLastSelected = false;
+
 const numbers = document.querySelectorAll('.numbers');
 numbers.forEach(number => {
     number.addEventListener("click", () => {
 
         if (operatorLastSelected === true) {
-            // reset display value
+            // Reset display value
             display.innerText = "";
 
             operatorLastSelected = false;
@@ -47,9 +46,19 @@ numbers.forEach(number => {
 
         const value = number.getAttribute("value");
 
-        // Populate the display when numbers are selected
-        display.innerText += value;
-        displayValue = parseFloat(display.innerText);
+        // Do nothing if display already contains a decimal point and user attempts to
+        // add another decimal point
+        if (value === "." && (display.innerText).includes(".")) {
+            return;
+        }
+
+        // Populate the display when numbers are selected, up to a certain length
+        if ((display.innerText).length < 9) {
+            display.innerText += value;
+            displayValue = parseFloat(display.innerText);
+        } else {
+            return;
+        }
     });
 })                                                                                                                                                                                                                         
 
@@ -60,6 +69,8 @@ operators.forEach(operator => {
         const previousOperator = operatorValue;
         operatorValue = operator.getAttribute("value");
 
+        // Prevents unexpected events when repeatedly selecting equal sign without 
+        // a previous operator
         if (previousOperator === "equal" && operatorValue === "equal") {
             return;
         }
@@ -68,11 +79,25 @@ operators.forEach(operator => {
             calculatedValue = displayValue;
         } else {
             calculatedValue = operate(previousOperator, calculatedValue, displayValue);
-            display.innerText = calculatedValue;
+
+            // Display calculation if finite number. If result is infinity, display error.
+            if (isFinite(calculatedValue)) {
+                display.innerText = +(calculatedValue.toFixed(5));
+            } else {
+                display.innerText = "ERROR";
+            }
         }
 
         operatorLastSelected = true;
     });
 });
                                                                                                                                                                                               
+const clearBtn = document.querySelector('#clear');
+clearBtn.addEventListener("click", () => {
+    displayValue = "";
+    calculatedValue = null;
+    operatorValue = null;
+
+    display.innerText = displayValue;
+});
 
