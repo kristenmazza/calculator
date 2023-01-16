@@ -110,8 +110,13 @@ clearBtn.addEventListener("click", () => {
 
 const deleteBtn = document.querySelector('#delete');
 deleteBtn.addEventListener("click", () => {
-    displayValue = +(displayValue.toString().slice(0, -1)); 
-    display.innerText = displayValue;
+    displayValue = displayValue.toString().slice(0, -1); 
+    
+    if (displayValue === 0 || displayValue === "-") {
+        display.innerText = "";
+    } else {
+        display.innerText = displayValue;
+    }
 });
 
 window.onkeydown = function(e) {
